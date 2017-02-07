@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ConstructorTest</title>
+</head>
+<body>
+<script>
+    //测试函数原型对象以及constructor
+    function Person() {
+
+    }
+
+    function Fruit() {
+
+    }
+
+    //这里重写了原型对象，而下面constructor访问到的便是Fruit中prototype的constructor
+    Person.prototype = new Fruit();
+
+    alert(new Person().constructor);
+
+    Person.prototype = {
+        constructor: Person,
+        name: "Nicholas",
+        age: 19,
+        job: "Computer"
+    };
+
+    Object.defineProperty(Person.prototype, "constructor", {enumerable: false, value: Person});
+    alert(new Person().constructor);
+</script>
+</body>
+</html>
