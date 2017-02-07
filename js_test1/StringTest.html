@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>包装器类型</title>
+</head>
+<body>
+<script>
+    /*var s1 = "some text";
+     var s2 = s1.substring(2);
+     alert(s1);
+     alert(s2);*/
+
+    var s1 = "some text";
+    // 下面创建的包装器类型创建后便销毁了
+    // 所以打印s1.color返回的是undefined
+    s1.color = "red";
+    alert(s1.color);
+
+    /*  var num = 10;
+     alert(num.toString());
+     alert(num.toString(2));
+     alert(num.toString(8));
+     alert(num.toString(10));
+     alert(num.toString(16));*/
+
+    // toExponential()该方法返回以指数表示法
+    var num = 10;
+    alert(num.toExponential(1));
+
+    // toFiexed()方法用于保留小数位数
+    /* num = 1.006;
+     alert(num.toFixed(2));*/
+
+    // ss没有变，只是substring返回的是分割后字符串
+    var ss = "yangqc";
+    var sss = ss.substring(1, 3);
+    alert(ss);
+    alert(sss);
+</script>
+</body>
+</html>

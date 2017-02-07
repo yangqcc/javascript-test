@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ObjectCreate</title>
+</head>
+<body>
+<script>
+    //创建对象
+    /*
+     * 工厂方法创建对象，但是没有解决对象的识别问题
+     * */
+    function createPerson(name, age, job) {
+        var o = new Object();
+        o.name = name;
+        o.age = age;
+        o.job = job;
+        o.sayName = function () {
+            alert(this.name);
+        };
+        return o;
+    }
+
+    var person1 = createPerson("Nicholas", 29, "SoftWare");
+    var person2 = createPerson("Greg", 27, "Doctor");
+
+    //    alert(person1 instanceof Object);
+
+    /*
+     * 构造函数模式，由于这是一个构造函数，所以为了区别，首字母大写
+     * */
+
+    function Person(name, age, job) {
+        this.name = name;
+        this.age = age;
+        this.job = job;
+        this.sayName = function () {
+            alert(this.name);
+        }
+    }
+
+    var person3 = new Person("Nicholas", 29, "Software Engineer");
+    var person4 = new Person("Greg", 27, "Doctor");
+    //alert(person3 instanceof Person);
+
+    //当做普通函数调用
+    //在全局函数中调用一个函数，this对象总是指向Global对象
+    //在浏览器中就是window对象
+    Person("Grey", 27, "Doctor");
+    window.sayName();
+
+    //构造函数也可以用call来调用
+    var o = new Object();
+    Person.call(o, "Kristen", 25, "Nurse");
+    o.sayName();
+</script>
+</body>
+</html>

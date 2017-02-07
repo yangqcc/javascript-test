@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>InnerObjectTest</title>
+</head>
+<body>
+<script>
+    /*
+     * 单体内置对象，不依赖宿主环境对象，在ECMAScript程序执行
+     * 之前就已经存在。不必显式实例化内置对象，因为已经实例化。
+     * Object，Array和String都是内置对象
+     *
+     * 单体内置对象 Global和Math
+     * */
+    /*
+     * 测试encodeURI以及encodeURIComponent
+     * */
+
+    /*
+     * eval方法，解析器发现eval()方法时，它会将传入的参数当做实际的ECMAScript语句来解析
+     * 然后把执行结果插入到原位置
+     * */
+    eval("alert('hi')");
+
+    var msg = "hello world";
+    eval("alert(msg)");
+
+    eval("function sayHi(){alert('sayHi')}");
+    /*
+    * 调用一定要在申明后面
+    * */
+    sayHi();
+
+</script>
+</body>
+</html>

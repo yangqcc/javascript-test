@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CalleeTest</title>
+</head>
+<body>
+<script>
+    //callee属性是一个指针，指向拥有arguments对象的函数
+    //caller保存调用当前函数的函数引用
+    function outer() {
+       /* var s = inner;
+        inner = null;
+        s();*/
+        inner();
+    }
+
+    function kk() {
+        alert("this is kk!");
+    }
+    //打印调用inner的函数的引用
+    function inner() {
+        alert(arguments.callee);
+    }
+    inner();
+    //outer();
+
+    /* function outer() {
+     inner();
+     }
+
+     function inner() {
+     alert(arguments.callee.caller);
+     }*/
+
+  /*  function factorial(num) {
+        if (num <= 1) {
+            return 1;
+        } else {
+            return num * factorial(num - 1);
+        }
+    }
+    alert(factorial(10));*/
+
+    /*
+     使用callee,可以避免与函数名耦合
+     */
+
+
+    /* function factorial(num) {
+     if (num <= 1) {
+     return 1;
+     } else {
+     return num * arguments.callee(num - 1);
+     }
+     }
+     var trueFactorial = factorial;
+     factorial = function () {
+     return 0;
+     }
+     alert(trueFactorial(5));
+     alert(factorial(5));*/
+
+
+</script>
+</body>
+</html>

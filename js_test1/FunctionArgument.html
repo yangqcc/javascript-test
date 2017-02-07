@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+     * 函数也是对象，因此函数也有属性和方法，每个函数包含两个属性
+     * length以及prototype
+     * */
+    /* function sayName(name) {
+     alert(name);
+     }
+
+     function sum(num1, num2) {
+     return num1 + num2;
+     }
+
+     function sayHi() {
+     alert("hi");
+     }
+
+     alert(sayName.length);
+     alert(sum.length);
+     alert(sayHi.length);*/
+
+    /*
+     * 每个函数包含两个非继承而来的方法,apply()和call()
+     * 这两个方法都是在特定作用域中调用函数，实际上等于设置函数体内this对象的值
+     * apply()接受两个参数，一个是运行函数的作用域，另一个是参数数组，第二个参数可以是
+     * Array的实例，也可以是arguments对象
+     * */
+    function sum(num1, num2) {
+        return num1 + num2;
+    }
+
+    function callSum1(num1, num2) {
+        return sum.apply(this, arguments);
+    }
+
+    function callSum2(num1, num2) {
+        return sum.apply(this, [num1, num2]);
+    }
+    /*
+     * 因为是在全局作用域中调用函数，所以这里传入的this就是window对象
+     * */
+    alert(callSum1(10, 10));
+    alert(callSum2(10, 10));
+</script>
+</body>
+</html>

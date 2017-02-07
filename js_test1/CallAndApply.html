@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CallAndApply</title>
+</head>
+<body>
+<script>
+    /*
+    * apply和call主要解决函数调用的作用域的问题
+    * */
+    var color = "red";
+    var o = {color: "black"};
+
+    function showColor() {
+        alert(this.color);
+    }
+
+    showColor();
+    showColor.call(o);
+    showColor.apply(this);
+    showColor.apply(window);
+</script>
+</body>
+</html>

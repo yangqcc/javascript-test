@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ObjectTest2</title>
+</head>
+<body>
+<script>
+    //定义多个属性
+
+    var book = {};
+    //除了定义基本属性，还定义了getter和setter访问器属性
+
+    Object.defineProperties(book, {
+        _year: {
+            value: 2004
+        },
+        edition: {
+            value: 1
+        },
+        year: {
+            get: function () {
+                return this._year;
+            },
+            set: function (newValue) {
+                if (newValue > 2004) {
+                    this._year = newValue;
+                    this.edition += newValue - 2004;
+                }
+            }
+        }
+    });
+
+    //感觉定义的基本类型属性不能修改
+    book.edition = 10;
+    book._year = 2009;
+    book.year = 2004;
+    alert(book.edition);
+    alert(book._year);
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ObjectCreate2</title>
+</head>
+<body>
+<script>
+    //构造函数创建对象
+  /*  function Perosn(name, age, job) {
+        this.name = name;
+        this.age = age;
+        this.job = job;
+        this.sayName = sayName;
+    }
+
+    //sayName应以为全局函数，这样就不用每创建一个Perosn对象就创建一个sayName对象
+    //但是定义为全局函数就失去了封装性
+    function sayName() {
+        alert(this.name);
+    }
+
+    var person1 = new Person("Nicholas", 29, "Software Engineer");
+    var person2 = new Person("Grey", 27, "Doctor");*/
+
+    //原型模式创建对象
+    function Person() {
+    }
+
+    Person.prototype.name = "Nicholas";
+    Person.prototype.age = 29;
+    Person.prototype.job = "Software Engineer";
+    Person.prototype.sayName = function () {
+        alert(this.name);
+    }
+
+    var person1 = new Person();
+    person1.sayName();
+
+    var person2 = new Person();
+    person2.sayName();
+    alert(person1.sayName == person2.sayName);
+</script>
+</body>
+</html>
