@@ -2,9 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>ObjectCreate1</title>
 </head>
 <body>
+<script>
 
+    //原型模式创建对象
+    function Person() {
+
+    }
+    Person.prototype.name = "original name";
+    Person.prototype.sayName = function () {
+        return "hello,this is sayName";
+    }
+    Person.prototype.age = 19;
+
+    var person1 = new Person();
+    var person2 = new Person();
+
+    person1.name = "shijia";
+    //判断属性是来自原型对象还是实例
+    //    alert(person1.hasOwnProperty("name"));
+    //    alert(person2.hasOwnProperty("name"));
+    person1.name = null;
+    alert(person1.hasOwnProperty("name"));
+    //从实例中删除属性，重新获取与原型对象中属性的链接
+    delete  person1.name;
+    alert(person1.hasOwnProperty("name"));
+    //    alert(person1.name);
+    //    alert(person2.name);
+
+    //删除实例的属性，便恢复了对原型属性的链接
+    //    delete person1.name;
+    //    alert(person1.name);
+
+    //    alert(person1.sayName == person2.sayName);
+
+
+    //构造函数创建对象
+    /*    function Person(name, age) {
+     this.name = name;
+     this.age = age;
+     this.sayName = function () {
+     return name;
+     }
+     }
+
+     var person1 = new Person("shijia", 25);
+     var person2 = new Person("qicheng", 26);
+     //这里person1和person2中的sayName是两个不同的对象，这样会重复创建很多sayName对象
+     alert(person1.sayName == person2.sayName);
+
+     var o = new Object();
+     Person.call(o, "haha", 19);
+     alert(o.sayName());*/
+
+
+</script>
 </body>
 </html>

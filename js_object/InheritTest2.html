@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>InheritTest2</title>
+</head>
+<body>
+<script>
+
+    /**
+     * 寄生式继承，为对象添加了函数，会由于不能做到函数复用而降低效率，
+     * 这一点与构造函数模式相似
+     */
+
+    function object(o) {
+        function F() {
+        }
+
+        F.prototype = o;
+        return new F();
+    }
+
+
+    function createAnother(original) {
+        var clone = object(original);
+        clone.sayHi = function () {
+            alert("Hi");
+        };
+        return clone;
+    }
+
+    var person = {
+        name: "Nicholas",
+        friends: ["Shelby", "Court", "Van"]
+    }
+
+    var anotherPerson = createAnother(person);
+    anotherPerson.sayHi();
+</script>
+</body>
+</html>
