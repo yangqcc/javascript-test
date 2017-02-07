@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PrototypeTest2</title>
+</head>
+<body>
+<script>
+    function Person() {
+
+    }
+
+    //注意字面常量设置prototype就是重写了原型对象，此时constructor不再指向Person
+    //这里使用instanceof便会出错
+    /*  Person.prototype = {
+     name: "Nicholas",
+     job: "Computer",
+     age: 29,
+     sayName: function () {
+     alert(this.name);
+     }
+     };
+
+
+     var person1 = new Person();
+     alert(person1 instanceof Person);
+     alert(person1 instanceof Object);
+     alert(person1.constructor == Person);
+     //这里constructor指向Object
+     alert(person1.constructor == Object);*/
+
+    Person.prototype.sayHello = function () {
+        alert("Hello!");
+    }
+
+    var person2 = new Person();
+
+    Person.prototype = {
+        sayHello: function () {
+            alert("this is not Hello!");
+        }
+    }
+
+    var person3 = new Person();
+
+    //此时person2还是指向之前的原型对象，因此Person的prototype已经被重写
+    person2.sayHello();
+    person3.sayHello();
+    alert(person3.constructor);
+</script>
+</body>
+</html>

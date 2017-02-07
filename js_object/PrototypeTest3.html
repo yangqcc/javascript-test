@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PrototypeTest3</title>
+</head>
+<body>
+<script>
+    //修改原生引用类型的原型对象，只是展示可以这么写，但是并不推荐
+/*    String.prototype.startWith = function (text) {
+        return this.indexOf(text) == 0;
+    }
+    var msg = "Hello world!";
+    alert(msg.startWith("Hello"));*/
+
+    //原型模式缺点
+    function Person() {
+
+    }
+
+    Person.prototype = {
+        constructor: Person,
+        name: "Nicholas",
+        age: 29,
+        job: "Software Engineer",
+        friends: ["Shelby", "Court"],
+        sayName: function () {
+            alert(this.name);
+        }
+    };
+
+    var person1 = new Person();
+    var person2 = new Person();
+    person1.friends.push("Van");
+    alert(person1.friends);
+    alert(person2.friends);
+    alert(person1.friends == person2.friends);
+</script>
+</body>
+</html>
