@@ -9,6 +9,67 @@
     /**
      * 寄生式组合继承
      */
+
+    //组合继承
+    /*   function SuperType(name) {
+     this.name = name;
+     this.color = ["red", "blue", "green"];
+     }
+
+     SuperType.prototype.sayName = function () {
+     alert(this.name);
+     };
+
+     function SubType(name, age) {
+     SuperType.call(this, name);
+     this.age = age;
+     }
+
+     SubType.prototype = new SuperType();
+     SubType.prototype.constructor = SubType;
+     SubType.prototype.sayAge = function () {
+     alert(this.age);
+     }
+     */
+
+
+    //寄生组合继承，该方法只调用了一次构造函数
+    function object(original) {
+        function F() {
+
+        }
+
+        F.prototype = original;
+        return new F();
+    }
+
+    function inheritPrototype(subType, superType) {
+        var prototype = object(superType.prototype); //创建对象
+        prototype.constructor = subType;             //增强对象
+        subType.prototype = prototype;               //指定对象
+    }
+
+    function SuperType(name) {
+        this.name = name;
+        this.color = ["red", "blue", "green"];
+    }
+
+    SuperType.prototype.sayName = function () {
+        alert(this.name);
+    };
+
+    function SubType(name, age) {
+        SuperType.call(this, name);
+        this.age = age;
+    }
+
+    inheritPrototype(SubType, SuperType);
+    SubType.prototype.sayAge = function () {
+        alert(this.age);
+    };
+
+    new SubType("Nicholas", 29).sayAge();
+
 </script>
 </body>
 </html>
