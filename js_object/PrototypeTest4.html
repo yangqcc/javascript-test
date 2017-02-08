@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PrototypeTest4</title>
+</head>
+<body>
+<script>
+    //构造函数的prototype可以赋值给另一个构造函数的prototype
+
+    function Person(name) {
+        this.name = name;
+    }
+
+    Person.prototype.sayName = function () {
+        alert("this Person's name is " + this.name);
+    };
+
+    function Fruit(name) {
+        this.name = name;
+    }
+    Fruit.prototype.sayName = function () {
+        alert("this Fruit's name is " + this.name)
+    };
+
+    Person.prototype = Fruit.prototype;
+
+    var person = new Person("Nicholas");
+    person.sayName();
+</script>
+</body>
+</html>
