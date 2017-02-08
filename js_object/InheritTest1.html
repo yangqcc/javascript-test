@@ -2,70 +2,71 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>InherieTest1</title>
+    <title>InheritTest1</title>
 </head>
 <body>
 <script>
     /* 原型式继承*/
-    function object(o) {
-        function F() {
+    /*   function object(o) {
+     function F() {
 
-        }
+     }
 
-        F.prototype = o;
-        return new F();
-    }
+     F.prototype = o;
+     return new F();
+     }
 
-    /*    var person = {
+     var person = {
      name: "Nicholas",
      friends: ["Shelby", "Court", "Van"]
+     };
+
+
+     var anotherPerson = object(person);
+     anotherPerson.name = "Linda";
+     anotherPerson.friends.push("Bob");
+
+     var yetAnotherPerson = object(person);
+     yetAnotherPerson.name = "Max";
+     yetAnotherPerson.friends.push("Barbie");
+
+     alert(person.name);
+     alert(anotherPerson.constructor);*/
+
+    //ES5的原型继承
+    /*    var person = {
+     name: "Nicholas",
+     friends: ["Shelby", "Count", "Van"]
      };*/
 
-
     function Person() {
+
     }
 
-    Person.prototype.job = "xixi";
 
     var person = new Person();
 
-    //    alert(person.constructor);
-    //    person.friends = ["qicheng"];
-
-    var anotherPerson = object(person);
-    anotherPerson.name = "Linda";
-//    anotherPerson.friends.push("Bob");
-
-    var yetAnotherPerson = object(person);
-    yetAnotherPerson.name = "Linda";
-//    yetAnotherPerson.friends.push("Barbie");
-
-    alert(person.friends);
-    alert(anotherPerson.prototype.constructor);
-
-    //ES5的原型继承
-    /*   var person = {
-     name: "Nicholas",
-     friends: ["Shelby", "Count", "Van"]
-     };
-
-     var anotherPerson = Object.create(person);
+    person.name = "Nicholas";
+    person.friends = ["Shelby", "Count", "Van"];
+    /*    var anotherPerson = Object.create(person);
      anotherPerson.name = "Grey";
-     anotherPerson.friends.push("Rob");
+     anotherPerson.friends.push("Rob");*/
 
-     var yetAnotherPerson = Object.create(person);
-     yetAnotherPerson.name = "Linda";
-     yetAnotherPerson.friends.push("Barbie");*/
+    var yetAnotherPerson = Object.create(person);
+    yetAnotherPerson.name = "Linda";
+    yetAnotherPerson.friends.push("Barbie");
 
 
-    /*    var anotherPerson = Object.create(person, {
-     name: {
-     value: "Grey"
-     }
-     });
+    var anotherPerson = Object.create(person, {
+        name: {
+            value: "Grey"
+        }
+    });
 
-     alert(anotherPerson.name);
-     alert(anotherPerson.friends);*/
+    alert(yetAnotherPerson.name);
+    alert(anotherPerson.name);
+    alert(yetAnotherPerson.constructor);
+    alert(anotherPerson.friends);
 </script>
 </body>
 </html>

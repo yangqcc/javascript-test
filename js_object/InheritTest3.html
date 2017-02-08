@@ -59,16 +59,17 @@
     };
 
     function SubType(name, age) {
-        SuperType.call(this, name);
+        SuperType.call(this, name);  //只在这里调用了一次构造函数
         this.age = age;
     }
 
     inheritPrototype(SubType, SuperType);
+
     SubType.prototype.sayAge = function () {
         alert(this.age);
     };
 
-    new SubType("Nicholas", 29).sayAge();
+    new SubType("Nicholas", 29).sayName();
 
 </script>
 </body>
