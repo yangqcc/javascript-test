@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>window_test</title>
+</head>
+<body>
+<script type="text/javascript">
+    //全局变量不能通过delete删除，但是定义在window上可以用delete删除
+    //因为使用var语句添加window属性有一个名为[[Configurable]]特性
+    //这个特性值被设置为false
+    var age = 29;
+    window.color = "red";
+    delete window.age;
+    delete window.color;
+
+    alert(window.age);
+    alert(window.color);
+
+    //这里会抛出错误，因为oldValue未定义
+    var newValue=oldValue;
+
+    //这里没有抛出错误，因为这是一次属性查询
+    //newValue的值是undefined
+    /*
+    直接访问一个未定义的属性会抛出异常，但是查询一个为定义的属性不会抛出异常
+    因为这里的值是undefined
+     */
+    var newValue=window.oldValue;
+</script>
+</body>
+</html>

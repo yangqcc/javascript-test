@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>window_time</title>
+</head>
+<body>
+<script type="text/javascript">
+    //时间单位是毫秒
+
+    //不建议传递一个字符，传递字符会导致再次解析一次字符，所以会造成性能损失
+    var timeoutId_first = setTimeout("alert('Hello world! (first)')", 1000);
+    clearTimeout(timeoutId_first);
+    var timeoutId_second = setTimeout(function () {
+        alert("Hello world! (second)");
+    }, 1000);
+
+    //间歇性调用函数，还是不建议传递字符
+    setInterval("alert('Hello world!_interval1')", 1000);
+
+    //推荐调用方式
+    setInterval(function () {
+        alert("Hello world!_interval2");
+    }, 1000);
+</script>
+</body>
+</html>

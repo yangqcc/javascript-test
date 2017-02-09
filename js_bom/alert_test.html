@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>alert_test</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    //如果用户点击了cancel，那么prompt返回null，点击OK返回"Michael"
+    //第二个参数是默认值，可以省略该参数，也可以为""
+    var result = prompt("What's your name?", "Michael");
+
+    if (result != null) {
+        alert("Welcome , " + result);
+    }
+</script>
+</body>
+</html>

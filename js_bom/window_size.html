@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>window_size</title>
+</head>
+<body>
+<script>
+    var pageWidth = window.innerWidth, pageHeight = window.innerHeight;
+
+    if (typeof pageWidth != "number") {
+        //确定是否属于标准模式
+        if (document.compatMode == "CSSlCompat") {
+            pageWidth = document.documentElement.clientWidth;
+            pageHeight = document.documentElement.clientHeight;
+        } else {
+            pageWidth = document.body.clientWidth;
+            pageHeight = document.body.clientHeight;
+        }
+    }
+
+    alert(pageWidth);
+    alert(pageHeight);
+    alert(window.outerHeight);
+    alert(window.outerWidth);
+
+    window.resizeTo(100, 100);
+</script>
+</body>
+</html>

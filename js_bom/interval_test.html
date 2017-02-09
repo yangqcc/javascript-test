@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>interval_test</title>
+</head>
+<body>
+<script type="text/javascript">
+    //    最好不要实现间歇性调用，都是通过超时来模拟间歇性调用
+
+    var num = 0;
+    var max = 10;
+    var intervalId = null;
+
+    /*    function incrementNumber() {
+     num++;
+     alert(num);
+     if (num == max) {
+     clearInterval(intervalId);
+     alert("Done");
+     }
+     }
+
+     intervalId = setInterval(incrementNumber, 500);*/
+
+    //上面周期调用也可以用超时函数来实现
+
+    /*    function incrementNumber() {
+     alert(num++);
+     if (num < max) {
+     setTimeout(arguments.callee, 500);
+     } else {
+     alert("Done!");
+     }
+     }
+
+     setTimeout(incrementNumber, 500);*/
+
+    //不用周期性函数的原因是下一个间歇性调用可能会上上一个间歇性调用还未执行完就启动了，而通过超时模拟周期性调用则
+    //不会出现这种情况
+    function add() {
+        alert(num);
+    }
+
+    function incrementNumber() {
+        num++;
+        setTimeout(add, 600);
+        if (num == max) {
+            clearInterval(intervalId);
+            alert("Done!");
+        }
+    }
+
+    intervalId = setInterval(incrementNumber, 500);
+</script>
+</body>
+</html>
