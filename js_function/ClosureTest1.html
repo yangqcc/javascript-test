@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ClosureTest1</title>
+</head>
+<body>
+<script>
+    function f() {
+        //函数内部定义变量如果前面不加var，那么就定义了一个全局变量
+        n = 99;
+        var m = 199;
+    }
+
+    //无论套多少层函数，前面不加var，那么都是定义了一个全局变量
+    function f2() {
+        function f3() {
+            s = 100;
+        }
+
+        f3();
+    }
+
+    f();
+    f2();
+    /*alert(n);
+     alert(s);*/
+
+    var name = "Nicholas";
+
+    var object = {
+        name: "My Object",
+        getNameFunc: function () {
+            return function () {
+                alert(this);
+                return this.name;
+            }
+        }
+    };
+
+    object.getNameFunc()();
+
+    var object = {
+        name: "My Object",
+        getNameFunc: function () {
+            var that = this;
+            return function () {
+                alert(that.constructor);
+                return that.name;
+            }
+        }
+    };
+
+    object.getNameFunc()();
+</script>
+</body>
+</html>

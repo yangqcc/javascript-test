@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test1</title>
+</head>
+<body>
+<script type="text/javascript">
+    function add(num1, num2) {
+        var sum = num1 + num2;
+        return sum;
+    }
+
+    //把有权访问私有变量，私有函数的方法称为特权方法
+    function MyObject() {
+        var privateVariable = 10;
+
+        function privateFunction() {
+            return false;
+        }
+
+        //特权方法
+        this.publicMethod = function () {
+            privateVariable++;
+            return privateFunction();
+        }
+    }
+
+    MyObject();
+    //    alert(publicMethod());
+
+    (function () {
+        //name就变成一个静态的，所有实例共享的属性
+        var name = "";
+        Person = function (value) {
+            name = value;
+        };
+
+        Person.prototype.getName = function () {
+            return name;
+        }
+
+        Person.prototype.setName = function (value) {
+            name = value;
+        }
+    })();
+
+    var person1 = new Person("Nicholas");
+    alert(person1.getName());
+    person1.setName("Greg");
+    alert(person1.getName());
+
+    var person2 = new Person("Michael");
+    alert(person1.getName());
+    alert(person2.getName());
+
+</script>
+</body>
+</html>

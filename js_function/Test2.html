@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test2</title>
+</head>
+<body>
+<script type="text/javascript">
+    //模块模式
+    //这种模式为函数添加私有变量和特权方法能够使其得到增强
+    /*    var singleton={
+     name:value,
+     method:function () {
+     //这里是方法
+     }
+     }*/
+
+    //对单例进行初始化同时又维护了其私有变量
+    var singleton = function () {
+        var privateVariable = 10;
+
+        function privateFunction() {
+            return false;
+        }
+
+        return {
+            publicProperty: true,
+            publicMethod: function () {
+                privateVariable++;
+                return privateFunction();
+            }
+        }
+    }();
+    alert(singleton.publicMethod());
+
+    var application = function () {
+        var components = new Array();
+        components.push("pp");
+
+        return {
+            getComponentCount: function () {
+                return components.length;
+            },
+            registerComponent: function (component) {
+                if (typeof component == "String") {
+                    components.push("haha");
+                }
+            }
+        }
+    }();
+    application.registerComponent("String");
+    alert(application.getComponentCount());
+
+    //下面是增强模块模式
+
+    var singleton = function () {
+        var priavteVarivable = 10;
+
+        function privateFunction() {
+            return false;
+        }
+
+        var object = new Object();
+
+        object.publicPorperty = true;
+
+        object.publicMethod = function () {
+            privateVariable++;
+            return privateFunction();
+        };
+
+        return object;
+    }();
+</script>
+</body>
+</html>

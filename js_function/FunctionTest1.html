@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FunctionTest1</title>
+</head>
+<body>
+<script>
+
+    //斐波那契数列
+    function factorial_1(num) {
+        if (num <= 1) {
+            return num;
+        } else {
+            return num * factorial_1(num - 1);
+        }
+    }
+
+    function factorial_2(num) {
+        if (num <= 1) {
+            return num;
+        } else {
+            return num * arguments.callee(num - 1);
+        }
+    }
+
+    /*    var anotherFunction = factorial_2;
+     factorial_2 = null;
+     alert(anotherFunction(10));*/
+
+    var anotherFunction = factorial_1;
+    alert(anotherFunction.constructor);
+</script>
+</body>
+</html>

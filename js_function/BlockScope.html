@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BlockScope</title>
+</head>
+<body>
+<script type="text/javascript">
+    //由于js没有块级作用域概念，所以这里的i是定义在outputNumber（）活动对象中的
+    function outputNumber(count) {
+        for (var i = 0; i < count; i++) {
+            alert(i);
+        }
+//        var i;
+        alert(i);
+    }
+
+    //    outputNumber(2);
+
+
+    //利用内部函数来实现私有作用域
+    function outputNumber2(count) {
+        (function (count) {
+            for (var i = 0; i < count; i++) {
+                alert(i);
+            }
+        })();
+        //下面的i则不能正常打印，将会导致一个错误
+        //alert(i);
+    }
+
+    (function () {
+        var now = new Date();
+        if (now.getMonth() == 1 && now.getDate() == 8) {
+            alert("Happy new Year!");
+        }
+    })();
+
+    outputNumber2(2);
+</script>
+</body>
+</html>
