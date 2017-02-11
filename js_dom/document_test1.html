@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>document_test1</title>
+</head>
+<body>
+<script type="text/javascript">
+    //document类型表示文档
+
+    //document对象是HTMLDocument的一个实例
+    //HTMLDocument继承自Document类型
+    //document是window对象的一个属性，所以可以当做全局对象来访问
+    var html = document.documentElement;
+
+    //下面为返回false，因为 <!DOCTYPE html> 元素，该元素也是作为文档元素被一起解析
+    //但是不同浏览器会有不同的实现，document.doctype用于访问该元素(但是IE8会将<!DOCTYPE html>错误的解析为一个注释，所以在
+    // IE8下，document.doctype永远只会返回null)
+    alert(html === document.childNodes[0]);
+    alert(html === document.firstChild);
+    alert(document.firstChild);
+    alert(html);
+
+    //修改title属性
+    document.title = "New page title";
+</script>
+</body>
+</html>

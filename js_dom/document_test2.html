@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>document_test2</title>
+</head>
+<body>
+<script type="text/javascript">
+    var length = document.childNodes.length;
+    // alert(length);
+
+    //下面这些都是HTMLDocument文档对象
+    //取得完整的URL
+    var url = document.URL;
+    alert(url);
+
+    //获取域名
+    var domain = document.domain;
+    alert(domain);
+
+    //取得来源网页的URL，如果没有来源网页，那么返回一个空字符串
+    var referrer = document.referrer;
+    alert(referrer);
+</script>
+</body>
+</html>

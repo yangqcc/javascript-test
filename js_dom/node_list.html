@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>node_list</title>
+</head>
+<body>
+<script type="text/javascript">
+    var firstChild = someNode.childNodes[0];
+    var secondChild = someNode.childNodes[1];
+    var count = someNode.childNodes.length;
+
+    function convertToArray(nodes) {
+        var array = null;
+        try {
+            array = Array.prototype.slice.call(nodes, 0);
+        } catch (ex) {
+            array = new Array();
+            for (var i = 0, len = nodes.length; i < len; i++) {
+                array.push(nodes[i]);
+            }
+        }
+    }
+
+
+    //访问当前节点的前一个同级节点或者后一个同级节点
+    function previousAndNext(node) {
+        if (node.nextSibling == null) {
+            alert("Last node in the parents's childNodes List !");
+        } else if (node.previousNode() == null) {
+            alert("First node in the parents's childNodes List !");
+        }
+    }
+
+    //someNode.ownerDocument。还属性指向表示整个文档的文档节点。
+    //这种关系表示的是任何节点都属于它所在的文档，任何节点都不能同事存在两个或更多的文档中
+
+    //someNode.hasChildNodes()，这个方法在节包含一个或者多个子节点的情况下返回true
+    //逼查询childNodes.length更简单的方法
+
+</script>
+</body>
+</html>
