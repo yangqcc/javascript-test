@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>text_test1</title>
+</head>
+<body>
+<div id="div1"></div>
+<div id="div2"> </div>
+<div id="div3">Hello World!</div>
+<script type="text/javascript">
+    var div1 = document.getElementById("div3");
+    var textNode = div1.firstChild;
+    alert(textNode.nodeValue);
+
+    document.getElementById("div2").firstChild.nodeValue = "haha!";
+
+    var textNode = document.createTextNode("<strong>Hello</strong> world!");
+    var element = document.createElement("div");
+    element.className = "message";
+    element.appendChild(textNode);
+    document.body.appendChild(element);
+</script>
+</body>
+</html>

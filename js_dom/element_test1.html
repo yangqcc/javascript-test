@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>element_test1</title>
+</head>
+<style type="text/css">
+    .myStyle {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
+
+    .newStyle {
+        width: 200px;
+        height: 200px;
+        background-color: black;
+    }
+
+    .thirdDivStyle {
+        width: 500px;
+        height: 500px;
+        background-color: aqua;
+    }
+</style>
+<body>
+<div id="myDiv" name="divName" my_special_attribute="hello!" class="myStyle"/>
+<script type="text/javascript">
+    //一般只在取得自定义属性的情况下，才使用getAttribute
+    //同样设置属性也是通过属性而不是getAttribute()来设置
+
+    var div = document.getElementById("myDiv");
+    /*    alert(div.targetName);
+     alert(div.nodeName);
+     alert(div.targetName == div.nodeName);*/
+
+    //div的属性都可以通过javascript进行改变
+
+    div.id = "someOtherId";
+    div.className = "myStyle";
+    div.title = "Some other text";
+    div.lang = "fr";
+    div.dir = "rtl";
+
+    /*    alert(div.id);
+     alert(div.className);
+     alert(div.title);
+     alert(div.lang);
+     alert(div.dir);*/
+
+
+    //通过getAttribute可以获取自定义特性，但是在HTML5规范中，
+    //自定义特性应该加上data-前缀加以验证
+
+    //特性名称是不区分大小写的，即"ID"和"id"代表同一特性
+    //    alert(div.getAttribute("my_special_attribute"));
+    alert(div.style);
+    //    alert(div.getAttribute("style"));
+
+    div.setAttribute("id", "alsoOtherId");
+    alert(div.id);
+
+    //创建元素
+    var div2 = document.createElement("div");
+    div2.className = "newStyle";
+    div2.id = "div2";
+
+    //添加到文档对象中去
+    //    document.body.appendChild(div2);
+
+    //替换之前的div
+    document.body.replaceChild(div2, div);
+
+    alert(document.getElementById("div2"));
+
+    var div3 = document.createElement("<div id=\"myNewDiv\" class=\"thirdDivStyle\">");
+
+    document.body.replaceChild(div3, div2);
+
+</script>
+</body>
+</html>

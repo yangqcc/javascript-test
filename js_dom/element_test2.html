@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>element_test2</title>
+</head>
+<body>
+<ul id="myList">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>
+        <ul id="myList2">
+            <li>child_li_1</li>
+            <li>child_li_2</li>
+            <li>child_li_3</li>
+        </ul>
+    </li>
+</ul>
+<script type="text/javascript">
+    var node;
+    var element = document.getElementById("myList");
+    //    for (var i = 0, len = element.childNodes.length; i < len; i++) {
+    //        if ((node = element.childNodes[i]).nodeType == 1) {
+    //            alert(node.nodeName);
+    //        } else {
+    //            alert(node.nodeName);
+    //        }
+    //    }
+
+    //    var items = element.getElementsByTagName("li");
+
+    //获取所有的ul，得到的是个node数组
+    var ul_list = document.getElementsByTagName("ul");
+    // alert(ul_list);
+    for (var i = 0; i < ul_list.length; i++) {
+        alert(ul_list[i].childNodes.length + " * " + ul_list[i].id);
+    }
+
+    //    alert(items.length);
+
+    //回返回所有的子元素
+    //    alert(element.childNodes.length);
+</script>
+</body>
+</html>
