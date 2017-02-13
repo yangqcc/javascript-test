@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dynamic_style_test1</title>
+</head>
+<body>
+<div id="div1" class="style"/>
+<script type="text/javascript">
+
+    //通过js引入css文件
+    function loadStyles(url) {
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = url;
+        var head = document.getElementsByTagName("head")[0];
+        head.appendChild(link);
+    }
+
+    loadStyles("myStyle.css");
+</script>
+</body>
+</html>

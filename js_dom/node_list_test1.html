@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>node_list_test1</title>
+</head>
+<body>
+<div id="div1"/>
+<script type="text/javascript">
+    var divs = document.getElementsByTagName("div");
+
+    var style = document.createElement("style");
+    style.type = "text/css";
+    style.appendChild(document.createTextNode(".style{background-color:black;width:100px;height:100px;}"));
+    //style标签一定要加在head里面
+    var head = document.getElementsByTagName("head")[0];
+
+
+    head.appendChild(style);
+
+    //这里会陷入一个死循环，因为divs.length是动态的
+    /*    for (var i = 0; i < divs.length; i++) {
+     for (var j = 0; j < 100000; j++) {
+     }
+     var div = document.createElement("div");
+     div.className = "style";
+     //  document.body.appendChild(div);
+     }*/
+
+    //这样就能避免无限循环
+    for (var i = 0, len = divs.length; i < len; i++) {
+        var div = document.createElement("div");
+        div.className = "style";
+        document.body.appendChild(div);
+    }
+
+</script>
+</body>
+</html>

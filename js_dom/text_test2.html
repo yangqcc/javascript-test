@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>text_test2</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    //合并text文本节点
+    //浏览器解析文档是永远不会创建相邻的文本节点
+    //相邻文本节点只会在执行DOM操作是出现
+
+    var element = document.createElement("div");
+    element.className = "message";
+    var textNode = document.createTextNode("Hello World!");
+    element.appendChild(textNode);
+
+    //创建文本节点
+    var anotherTextNode = document.createTextNode(" Yippee!");
+    element.appendChild(anotherTextNode);
+
+    document.body.appendChild(element);
+
+    alert(element.childNodes.length);
+
+    //normalize将所有的文本元素合并，文本元素的父元素调用该方法
+    element.normalize();
+    alert(element.childNodes.length);
+    alert(element.firstChild.nodeValue);
+
+
+</script>
+</body>
+</html>

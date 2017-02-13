@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>element_test2</title>
+    <div id="dd"> </div>
 </head>
 <body>
 <ul id="myList">
@@ -32,10 +33,17 @@
     //获取所有的ul，得到的是个node数组
     var ul_list = document.getElementsByTagName("ul");
     // alert(ul_list);
-    for (var i = 0; i < ul_list.length; i++) {
-        alert(ul_list[i].childNodes.length + " * " + ul_list[i].id);
-    }
+    //    for (var i = 0; i < ul_list.length; i++) {
+    //        alert(ul_list[i].childNodes.length + " * " + ul_list[i].id);
+    //    }
 
+    var head = document.getElementsByTagName("head");
+
+    //修改title的值
+    alert((document.head.childNodes)[3].innerHTML = "yanqc");
+
+    //可以知己设置title的值
+    document.title = "xixi";
     //    alert(items.length);
 
     //回返回所有的子元素

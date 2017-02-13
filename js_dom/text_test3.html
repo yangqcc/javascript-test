@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>text_test3</title>
+</head>
+<body>
+<script type="text/javascript">
+    //分割文本节点
+    var element = document.createElement("div");
+    element.className = "myStyle";
+
+    var textNode = document.createTextNode("Hello World!");
+    element.appendChild(textNode);
+
+    document.body.appendChild(element);
+
+    //分割文本，原来文本节点将包含从开始到指定位置之前的内容
+    //新文本节点将包含剩下的文本
+    //感觉并没有什么意义，就是分割成两个文本节点
+    var newNode = element.firstChild.splitText(5);
+    alert(element.firstChild.nodeValue);
+    alert(newNode.nodeValue);
+    alert(element.childNodes.length);
+
+</script>
+</body>
+</html>
