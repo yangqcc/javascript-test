@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>query_selector</title>
+</head>
+<body>
+
+<div id="myDiv"/>
+<div id="myDiv1" class="selected"/>
+<div id="myDiv2" class="selected"/>
+<>
+<script type="text/javascript">
+    //querySelector()方法
+    //取得body元素
+    var body = document.querySelector("body");
+    alert(body);
+
+    //取得id为myDiv的元素
+    var myDiv = document.querySelector("#myDiv");
+    alert(myDiv.id);
+
+    //取得类为selected的第一个元素
+    var selected = document.querySelector(".selected");
+    alert(selected.id);
+
+    //取得类为"button"的第一个图像元素
+    var img = document.body.querySelector("img.button");
+
+    //通过Document类型调用querySelector()方法是，会在文档元素的
+    //范围查找匹配元素，而通过querySelector调用该方法时，会在该元素后代
+    //元素的范围查找匹配元素
+
+    //如果传入了不被支持的的选择符，querySelector()会抛出错误
+</script>
+</body>
+</html>

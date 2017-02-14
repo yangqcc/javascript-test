@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>query_selectorAll</title>
+</head>
+<body>
+<div id="myDiv">
+    <em>Hello
+    </em>
+    <em>
+        World!
+    </em></div>
+
+<div id="myDiv1" class="selected">
+</div>
+<div id="myDiv2" class="selected">
+</div>
+
+<p>
+    <strong>shijia
+    </strong>
+    <strong>qicheng
+    </strong>
+</p>
+<script type="text/javascript">
+    //和querySelector一样，只不过这里是选取所有的元素
+    var ems = document.getElementById("myDiv").querySelectorAll("em");
+    for (var i = 0, len = ems.length; i < len; i++) {
+        alert(ems[i].innerHTML);
+    }
+
+    var selecteds = document.querySelectorAll(".selected");
+    for (var i = 0, len = selecteds.length; i < len; i++) {
+        alert(selecteds[i].id);
+    }
+
+    //获取P标签下的所有的strong标签
+    var strongs = document.querySelectorAll("p strong");
+    for (var i = 0, len = strongs.length; i < len; i++) {
+        alert(strongs[i].innerHTML);
+    }
+
+</script>
+</body>
+</html>

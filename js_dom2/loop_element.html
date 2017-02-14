@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>loop_element</title>
+</head>
+<body>
+<ul id="myUl">
+    <li>苹果</li>
+    <li>香蕉</li>
+    <li>梨</li>
+</ul>
+<script type="text/javascript">
+    //跨浏览器遍历元素
+    var element = document.getElementsByTagName("ul")[0];
+    var child = element.firstChild;
+
+    //这里会遍历到文本节点
+    while (child != element.lastChild) {
+        alert(child.nodeName);
+        child = child.nextSibling;
+    }
+
+    alert("another way!");
+
+    var i, len, child = element.firstChild;
+    while (child != element.lastChild) {
+        if (child.nodeType == 1) {
+            alert(child.nodeName);
+        }
+        child = child.nextSibling;
+    }
+
+    alert("Element Traversal!");
+    //使用Element Traversal新增元素
+    var i, len, child = element.firstElementChild;
+    while (child != element.lastElementChild) {
+        alert(child.nodeName);
+        child = child.nextElementSibling;
+    }
+</script>
+</body>
+</html>
