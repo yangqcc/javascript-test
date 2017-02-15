@@ -7,6 +7,11 @@
 <body>
 <script type="text/javascript">
     //返回一个代表当前窗口的对象，对当前窗口实现操作
+    //四个参数
+    //1.打开窗口的url
+    //2.名称
+    //3.窗口配置
+    //4.新页面是否取代浏览器历史记录中当前加载页面的布尔值
 
     //如果是浏览器内置的屏蔽程序，那么window.open很可能会返回null
     //只要检查返回值就可以判断对否被屏蔽
@@ -14,7 +19,7 @@
     //如果是浏览器扩展或者其他程序阻止的弹出窗口，那么window.open()会抛出一个错误
     var blocked = false;
     try {
-        var wroxWin = window.open("http://www.baidu.com", "topFrame", "height=400,width=400");
+        var wroxWin = window.open("file:///C:/Users/yangqc/Desktop/javscript-test/js_bom/openWindow.html", "topFrame", "location=no,height=400,width=400,resizable=no");
         wroxWin.resizeTo(1000, 500);
         wroxWin.moveTo(100, 100);
         if (wroxWin == null) {
