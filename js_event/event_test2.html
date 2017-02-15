@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event_test2</title>
+</head>
+<body>
+
+<input id="myButton1" type="button" value="button1"/>
+
+<script type="text/javascript">
+
+    //eventPhase用来确定当前事件处于哪个阶段
+    /*
+     *   1. eventPhase=1，事件在捕获阶段调用事件处理程序
+     *   2. eventPhase=2，事件处于目标对象上
+     *   3. eventPhase=3，事件在冒泡阶段调用事件处理程序
+     * */
+
+    var btn = document.getElementById("myButton1");
+
+    btn.onclick = function (event) {
+        alert(event.eventPhase + " button");
+    };
+
+    //true表示在捕获阶段触发事件
+    document.body.addEventListener("click", function (event) {
+        alert(event.eventPhase + " add");
+    }, true);
+
+    document.body.onclick = function (event) {
+        alert(event.eventPhase + " body");
+    }
+
+</script>
+</body>
+</html>

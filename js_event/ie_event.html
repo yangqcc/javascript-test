@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ie_event</title>
+</head>
+<body>
+
+<input id="myButton" type="button" value="click me!"/>
+
+<script type="text/javascript">
+
+    var btn = document.getElementById("myButton");
+
+/*    btn.onclick = function () {
+        alert(window.event.srcElement === this);
+    };*/
+
+    btn.attachEvent("onclick", function (event) {
+        alert(event.srcElement === this);
+    });
+</script>
+</body>
+</html>

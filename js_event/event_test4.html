@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event_test4</title>
+</head>
+<body>
+
+<input type="button" value="click me!" id="myButton"/>
+
+<script type="text/javascript">
+
+    var btn = document.getElementById("myButton");
+
+    //这是DOM2的方法
+    document.body.addEventListener("click", function (event) {
+        alert(event.type + " * " + event.eventPhase);
+    }, false);
+
+    var clickFunction = function (event) {
+        alert("this is onclick! " + event.eventPhase);
+    };
+
+    document.onclick = clickFunction;
+    //这样也可以移除事件
+//    document.onclick = null;
+
+    var clickFunction2 = function () {
+        this.style.backgroundColor = "red";
+    };
+
+    btn.addEventListener("mouseover", clickFunction2, false);
+
+    btn.addEventListener("mouseout", function () {
+        this.style.backgroundColor = "green";
+    }, false);
+
+    //移除事件
+    window.setTimeout(function () {
+        btn.removeEventListener("mouseover", clickFunction2, false)
+    }, 2000);
+</script>
+</body>
+</html>

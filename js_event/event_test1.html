@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event_test1</title>
+</head>
+<body>
+<!--this代表当前事件的目标元素-->
+<!--event可以直接访问事件对象-->
+<!--<input type="button" value="Click me!" onclick="alert(event.type)"></input>-->
+<input id="myButton" type="button" value="Click me!"/>
+<input id="myButton2" type="button" value="Hello!"/>
+<a href="http://www.baidu.com" id="myTarget">超链接</a>
+<script type="text/javascript">
+
+    //事件冒泡，事件会一直向上层传递
+    /*    document.body.onclick = function (event) {
+     alert(event.currentTarget == document.body);
+     alert(document.body == this);
+     alert(event.target == document.getElementById("myButton"));
+     }*/
+
+    //处理多个事件
+    var btn = document.getElementById("myButton");
+    var handler = function (event) {
+        switch (event.type) {
+            case "click":
+                alert("clicked!");
+                break;
+            case "mouseover":
+                event.target.style.backgroundColor = "red";
+                break;
+            case "mouseout":
+                event.target.style.backgroundColor = "";
+                break;
+        }
+    }
+
+    btn.onclick = handler;
+    btn.onmouseover = handler;
+    btn.onmouseout = handler;
+
+    //用于取消默认事件，用于当前代码中的超链接
+    var a_element = document.getElementById("myTarget");
+    a_element.onclick = function (event) {
+        //改行代码用于取消默认事件
+        event.preventDefault();
+    }
+
+    var btn2 = document.getElementById("myButton2");
+    btn2.onclick = function (event) {
+        alert("this is button2!");
+        //阻止事件向上传递
+        event.stopPropagation();
+    }
+
+    //body上绑定事件
+    document.body.onclick = function (event) {
+        alert("Body clicked!");
+    }
+</script>
+</body>
+</html>

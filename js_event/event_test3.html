@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event_test3</title>
+</head>
+<body>
+
+<input type="button" id="myButton" value="click me!"/>
+
+<script type="text/javascript">
+
+    //事件流触发顺序，先是捕获阶段，再是目标对象触发阶段，再是冒泡阶段
+
+    var btn = document.getElementById("myButton");
+
+    document.body.addEventListener("click", function (event) {
+        alert(event.eventPhase);
+    }, true);
+
+    document.body.onclick = function (event) {
+        alert(event.eventPhase);
+    };
+
+    //eventPhase都是2，因为事件都是添加在button元素上
+
+    btn.addEventListener("click", function (event) {
+        alert(event.type + " * " + this.id + " * " + event.eventPhase);
+    }, true);
+
+    btn.onclick = function (event) {
+        alert(this.id + "*" + event.eventPhase);
+    };
+
+    btn.addEventListener("click", function (event) {
+        alert(event.eventPhase);
+    }, false);
+</script>
+</body>
+</html>
