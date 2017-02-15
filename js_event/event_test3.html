@@ -15,11 +15,12 @@
     var btn = document.getElementById("myButton");
 
     document.body.addEventListener("click", function (event) {
-        alert(event.eventPhase);
+        alert(event.eventPhase + "* body");
     }, true);
 
+    //加到冒泡阶段
     document.body.onclick = function (event) {
-        alert(event.eventPhase);
+        alert(event.eventPhase + "* onclick");
     };
 
     //eventPhase都是2，因为事件都是添加在button元素上

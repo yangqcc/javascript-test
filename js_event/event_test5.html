@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event_test5</title>
+    <script type="text/javascript" src="EventUtil.js"></script>
+</head>
+<body>
+
+<input type="button" value="click me!" id="myButton"/>
+
+<script type="text/javascript">
+
+    function click_event() {
+        alert(this.value);
+    }
+
+    EventUtil.addHandler(document.getElementById("myButton"), "click", click_event);
+
+    window.setTimeout(function () {
+        EventUtil.removerHandler(document.getElementById("myButton"), "click", click_event);
+        alert("time out，event cleared !");
+    }, 5000);
+</script>
+</body>
+</html>

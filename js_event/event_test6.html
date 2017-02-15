@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event_test6</title>
+</head>
+<body>
+
+<input type="button" value="click me!" id="myButton"/>
+
+<script type="text/javascript">
+
+    //currentTarget 其事件处理程序当前正在处理事件的那个元素
+    //target 事件的目标
+
+    var btn = document.getElementById("myButton");
+
+    btn.onclick = function (event) {
+        alert(this == event.currentTarget);
+        alert(event.target == this);
+        //只能阻止冒泡事件向上级传播
+        event.stopPropagation();
+    };
+
+    (document.getElementsByTagName("body")[0]).onclick = function (event) {
+        //this代表当前调用环境，该事件函数是加在body上的，所以this是body
+        alert(this == document.body);
+        alert(event.target == document.getElementById("myButton"));
+        alert(event.currentTarget == document.body);
+    };
+
+    document.body.addEventListener("click", function (event) {
+        alert("this is body event!")
+    }, true);
+
+    //覆盖之前的onclick
+    btn.onclick = document.body.onclick;
+
+</script>
+</body>
+</html>
