@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>inner</title>
+</head>
+<body>
+<input type="button" value="click me!" id="myButton"/>
+<div id="status">q</div>
+<div>
+    <input type="text" id="message" size="40"/>
+    <input type="button" id="btn" value="send to tmall"/>
+</div>
+
+<script type="text/javascript">
+    var bn = document.getElementById("btn");
+    var myButton=document.getElementById("myButton");
+
+    function iframeMessage() {
+        alert("Hello , this is iframe!");
+    };
+
+    myButton.onclick=function () {
+        window.parent.alertString();
+    };
+
+    bn.addEventListener("click", function (event) {
+        var message = document.getElementById("message").value;
+        if (parent.postMessage) {
+            parent.postMessage(message, "*");
+        }
+    }, false);
+
+    window.addEventListener("message", function (event) {
+        alert(event.data);
+        var stat = document.getElementById("status");
+        stat.innerHTML = "parent said:" + event.data;
+    }, false);
+</script>
+</body>
+</html>

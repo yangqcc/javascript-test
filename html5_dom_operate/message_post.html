@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>message_post</title>
+</head>
+<body>
+
+<input type="button" value="click me!" id="myButton"/>
+<div id="status"></div>
+<div>
+    <input type="button" value="open window" id="openButton"/>
+    <input type="text" id="message" size="40"/>
+    <input type="button" id="btn" value="send to iframe"/>
+</div>
+
+<div>
+    <iframe id="inframe" src="inner.html" name="testIframe"></iframe>
+</div>
+
+<script type="text/javascript">
+    var bn = document.getElementById("btn");
+    var openButton = document.getElementById("openWindow");
+
+    document.getElementById("myButton").onclick = function () {
+        //获取iframe中的对象
+//        document.getElementById("inframe").contentWindow.iframeMessage();
+        //两种方式都可以获取iframe对象
+        window.frames["testIframe"].iframeMessage();
+    };
+
+    function alertString() {
+        alert("Hello World!");
+    }
+
+    bn.addEventListener("click", function (event) {
+
+        var message = document.getElementById("message").value,
+            innerWindow = document.getElementById("inframe").contentWindow;
+        if (innerWindow.postMessage) {
+            innerWindow.postMessage(message, "*");
+        } else {
+            alert("don't support!");
+        }
+    }, false);
+
+    window.addEventListener("message", function (event) {
+        var stat = document.getElementById("status");
+        stat.innerHTML = "iframe said:" + event.data;
+        //  event.source.postMessage("Success", "*");
+    }, false);
+</script>
+</body>
+</html>
