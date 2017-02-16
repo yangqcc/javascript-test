@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>json_test1</title>
+</head>
+<body>
+<script type="text/javascript">
+    var jsonString = [
+        {
+            "name": "shijia",
+            "age": 28
+        },
+        {
+            "name": "chaochao",
+            "age": 10
+        },
+        {
+            "name": "qicheng",
+            "age": 20
+        }
+    ];
+
+
+    //第三个参数表示每个级别缩进几个空格
+    var jsonArray = JSON.stringify(jsonString, function (key, value) {
+        switch (key) {
+            case "name":
+                return "qicheng";
+            case "age":
+                return 18;
+            default:
+                return value;
+        }
+    }, 4);
+
+    alert(jsonArray);
+</script>
+</body>
+</html>
