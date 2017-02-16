@@ -21,20 +21,23 @@
         }
     ];
 
-
     //第三个参数表示每个级别缩进几个空格
     var jsonArray = JSON.stringify(jsonString, function (key, value) {
-        switch (key) {
-            case "name":
-                return "qicheng";
-            case "age":
-                return 18;
-            default:
-                return value;
+        if (key == "age" && value > 20) {
+            return 18;
+        } else {
+            return value;
         }
-    }, 4);
+    }, 1);
 
-    alert(jsonArray);
+    alert(typeof jsonArray == "string");
+
+    //如果不是标准的JSON字符串，解析会出错
+    try {
+        JSON.parse("{cdcdscsdcds,cdscsdcds}");
+    } catch (exception) {
+        alert(12);
+    }
 </script>
 </body>
 </html>

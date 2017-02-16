@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>parseJson</title>
+</head>
+<body>
+<script type="text/javascript">
+    var book = {
+        "title": "Professional JavaScript",
+        "authors": ["Nicholas"],
+        edition: 3,
+        year: 2011,
+        releaseDate: new Date(2011, 11, 1)
+    };
+
+    var jsonText = JSON.stringify(book);
+
+    //还原成一个Date对象，否则便解析成了字符串
+    var bookCopy = JSON.parse(jsonText, function (key, value) {
+        if (key == "releaseDate") {
+            return new Date(value);
+        } else {
+            return value;
+        }
+    });
+
+    alert(bookCopy.releaseDate.getFullYear());
+    //不过不加函数，那么会解析成一个字符串
+    alert(typeof JSON.parse(jsonText).releaseDate == "string");
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>toJson_test</title>
+</head>
+<body>
+<script type="text/javascript">
+    //JSON.stringify 解析JSON顺序
+    //1.先调用toJSON()函数，如果存在的话
+    //2.如果提供了第二个函数，传递过滤器的值是步骤1返回的值
+    //3.对第二步返回的值进行序列化
+    //4.如果提供了第三个参数，那么进行格式化
+
+    var date = new Date();
+    alert(date.toJSON());
+
+    var book = {
+        "title": "Profession1 JavaScript",
+        "authors": ["Nicholas C. Zakas"],
+        "edition": 3,
+        "year": 2011,
+        toJSON: function () {
+            return this.title + "*";
+        }
+    };
+
+    var myJsonObject = {
+        "book": book,
+        "name": "arsenal"
+    };
+
+    alert(JSON.stringify(book));
+    alert(JSON.stringify(myJsonObject, function (key, value) {
+        if (key == "book") {
+            return value + ", hello!";
+        }
+        return value;
+    }, 1));
+
+</script>
+</body>
+</html>

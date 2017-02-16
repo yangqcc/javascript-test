@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>json_test2</title>
+</head>
+<body>
+<script type="text/javascript">
+    var myJsonObject = [
+        {
+            "name": "Json",
+            "age": 10
+        },
+        {
+            "name": "Nicholas",
+            "age": 12
+        },
+        {
+            "name": "Bob",
+            "age": 19
+        }
+    ];
+
+    var jsonObject = [
+        {
+            "name": ["Nicholas", "Bob"],
+            "age": [12, 34]
+        }
+    ];
+
+    var jsonObject3 = [
+            {
+                "names": [
+                    {
+                        "name": "Nicholas",
+                        "age": 19
+                    },
+                    {
+                        "name": "Bob",
+                        "age": 20
+                    }
+                ]
+            }
+        ]
+        ;
+
+    //如果第二个参数是数组，那么只过滤数组里面有的属性
+    var jsonString = JSON.stringify(myJsonObject, ["name"], 1);
+    var jsonString2 = JSON.stringify(myJsonObject, function (key, value) {
+        switch (key) {
+            case "name":
+                //如果返回undefined，那么这个属性也会被忽略
+                return undefined;
+            default:
+                return value;
+        }
+    });
+
+    var jsonString3 = JSON.stringify(jsonObject, function (key, value) {
+        switch (key) {
+            case "name":
+                return value;
+            default:
+                return value;
+        }
+    });
+
+    //可以用其他字符进行换行缩进
+    var jsonString4 = JSON.stringify(jsonObject3, function (key, value) {
+        if (key == "name") {
+            return value + "*";
+        }
+        return value;
+    }, "-");
+
+    alert(jsonString);
+    alert(jsonString2);
+    alert(jsonString3);
+    alert(jsonString4);
+</script>
+</body>
+</html>
