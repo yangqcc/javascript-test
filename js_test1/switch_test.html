@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>switch_test</title>
+</head>
+<body>
+<script>
+
+    //switch的多种用法
+    //switch语句中可以使用任何数据类型，字符串，对象都可以
+    //case的值不一定是常量，也可以是变量，甚至是表达式
+
+    var num = 30;
+
+    function testNum(currentNum) {
+
+        switch (true) {
+            case currentNum < 10:
+                alert("<10");
+                break;
+            case currentNum > 20:
+                alert(">20");
+                break;
+            case currentNum <= 20 && currentNum >= 10:
+                alert("<=20 && >=10");
+                break;
+            default:
+                alert("default");
+                break;
+        }
+    }
+
+    function testString(currentString, SecondString) {
+
+        switch ("Hello World") {
+            case currentString + " " + SecondString:
+                alert(currentString);
+                break;
+            case "good bye":
+                alert("Closing was found.");
+                break;
+            default:
+                alert("Unexpected message wad found!")
+        }
+
+    }
+
+    testNum(num);
+    //    testString("Hello", "World");
+    testString("Hello");
+
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function_test2</title>
+</head>
+<body>
+<script type="text/javascript">
+    //严格模式下，参数可arguments互相修改参数会出现错误
+    //javascript的函数没有函数签名的概念，参数就是一个数组
+    //arguments对象只是与数组相似，但并不是Array的实例
+
+    // "use strict";
+    //非严格模式，可以通过arguments修改参数值
+
+    function addNum(num1, num2) {
+        //arguments可以修改参数的值
+        arguments[0] = 10;
+        return num2 + num1;
+    }
+
+    function addNum2(num1, num2) {
+        num1 = 10;
+        alert(arguments[0]);
+        num1 = 20;
+        alert(arguments[0]);
+        return arguments[0] + num2;
+    }
+
+    //没有返回值的函数返回undefined
+    function returnType() {
+
+    }
+
+    function argumentType(num1, num2, num3) {
+        alert(arguments.constructor == Object);
+    }
+
+    //    alert(addNum(20, 30));
+    //    alert(addNum2(20, 30));
+    //    alert(addNum2(0, 30));
+    //    alert(returnType());
+    argumentType(19, 20, 49);
+</script>
+</body>
+</html>
