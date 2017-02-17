@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function_Test3</title>
+</head>
+<body>
+<script type="text/javascript">
+    //这里是两个不同的函数
+
+    var function1 = function myFunction() {
+        alert("this is myFunction!");
+    };
+
+    alert((function () {
+            alert(1);
+        }) == (function () {
+            alert(1);
+        }));
+
+    var function2 = function1;
+    alert(function1 == function2);
+</script>
+</body>
+</html>
