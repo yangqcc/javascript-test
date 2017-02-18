@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array_test3</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    //测试数组的重排序方法
+    //两个直接用来重排序的方法reverse()以及sort()
+
+    //reverse()会反转数组顺序
+    var values = [1, 2, 3, 4, 5, 6];
+    values.reverse();
+    alert(values);
+
+    //sort默认的是升序排列，sort()方法会调用数组中每个元素的toString()
+    //方法，然后比较得到的字符串，以确定如何排序，即使数组中的每一项都是数值，
+    //sort()方法比较的也是字符串
+
+    //下面16会排在5前面，因为比较的是字符串，所以16会在5前面
+    var values2 = [0, 1, 5, 10, 16];
+    alert(values2.sort());
+
+    //比较函数，相等返回0，小于返回负值，大于返回正值
+    function compare(value1, value2) {
+        if (value1 < value2) {
+            return -1;
+        } else if (value1 > value2) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    alert(values2.sort(function (value1, value2) {
+        return value1 - value2;
+    }));
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array_test2</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    //测试Array的栈方法
+
+    /*    function Person(name, age) {
+     this.name = name;
+     this.age = age;
+     }
+
+     Person.prototype.toString = function () {
+     return JSON.stringify(this);
+     };
+
+     var person1 = new Person("Nicholas", 19);
+     var person2 = new Person("Bob", 29);
+
+     var person_Array = [person1, person2];
+
+     person_Array.push(new Person("Mike", 29));
+
+     alert(person_Array);
+     //取得数组的最后一项
+     alert(person_Array.pop());
+     //执行pop后，该元素被弹出栈，不会继续保存在数组中
+     alert(person_Array.length);
+
+     //Array队列方法(shift()与push()，unshift()与pop()方法搭配使用)
+     person_Array.push(new Person("Job", 199));
+     //此方法相当于队列，将元素从头弹出去
+     alert(person_Array.shift());*/
+
+    var color1 = "black";
+    var color2 = "red";
+
+    var color_Array = new Array(color1, color2);
+
+    color_Array.unshift("green");
+    alert(color_Array);
+    alert(color_Array.pop());
+
+</script>
+</body>
+</html>

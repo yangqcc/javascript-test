@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array_test1</title>
+</head>
+<body>
+<script type="text/javascript">
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    Person.prototype.toString = function () {
+        return this.name;
+    };
+
+    var person1 = new Person("Nicholas", 19);
+    var person2 = new Person("Bob", 20);
+    var person3 = new Person("Mike", 29);
+
+    person1.toString = function () {
+        return "***" + this.name + "***";
+    };
+
+    person2.toString = function () {
+        return "#" + this.name + "#"
+    };
+
+    var persons = [person1, person2, person3];
+
+    alert(persons.toString());
+    //添加分割符
+    alert(persons.join("||"));
+
+    //检测数组方式
+    //1. value instanceof Array
+    //2. Array.isArray(value) 最好用这种
+    alert(Array.isArray(persons));
+
+    //如果数组元素是undefined,那么返回空字符串
+    var myArray = [1, 2, , ,];
+    alert(myArray);
+    alert(myArray.length);
+</script>
+</body>
+</html>
