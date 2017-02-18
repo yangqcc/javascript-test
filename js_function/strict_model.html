@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>strict_model</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    /**
+     * 函数的toString方法和valueOf()方法返回这个函数的定义
+     */
+
+    "use strict";
+
+    var color = "blue";
+
+    function showColor() {
+        alert(this.color);
+    }
+
+    var myColor = {color: "yellow"};
+
+    showColor.call(myColor);
+
+    alert(showColor.toString());
+    alert(showColor.valueOf());
+</script>
+</body>
+</html>

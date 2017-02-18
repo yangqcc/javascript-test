@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>interface_test1</title>
+</head>
+<body>
+<script type="text/javascript">
+    var Interface = function (name, methods) {
+        if (arguments.length != 2) {
+            throw new Error("参数数量不对！" + arguments.length);
+        }
+        this.name = name;
+        this.methods = [];
+        for (var i = 0, len = methods.length; i < len; i++) {
+            if (typeof methods[i] !== "string") {
+                throw new Error("参数类型错误！");
+            }
+            this.methods.push(methods[i]);
+        }
+    }
+
+    //辅助函数
+    Interface.ensureImplements = function (object) {
+        if (arguments.length < 2) {
+            throw new Error("参数个数错误！");
+        }
+        for (var i = 0; i < arguments.length; i++) {
+            var interface = arguments[i];
+            if (!(interface instanceof Interface)) {
+                throw new Error(arguments[i] + "不是一个接口!");
+            }
+            for (var j = 0, methodsLen = interface.methods.length; j < methodsLen; j++) {
+                var method = interface.methods[j];
+                if (!object[method] || typeof object[method] != "function") {
+                    throw new Error("对象的方法不一致！");
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bind_test</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    /**
+     * ES5定义的bind()方法，这个方法会创建一个函数的实例，
+     * 其中this的值会绑定传给bind()函数的值
+     *
+     * **该方法会返回一个函数
+     * **prototype属性是不可枚举的，因此使用for-in无法发现
+     * @type {string}
+     */
+
+    var color = "red";
+    var o = {color: "blue"};
+
+    function sayColor() {
+        alert(this.color);
+    }
+
+    var objectSayColor = sayColor.bind(o);
+
+    objectSayColor();
+
+    alert(objectSayColor == sayColor);
+</script>
+</body>
+</html>

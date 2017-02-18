@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function_test6</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    /**
+     * 返回值可以直接是一个函数
+     * @param propertyName
+     * @returns {Function}
+     */
+
+    //根据对象的某个字段进行排序
+    function createComparisonFunction(propertyName) {
+
+        return function (object1, object2) {
+            var value1 = object1[propertyName];
+            var value2 = object2[propertyName];
+            return value1 - value2;
+        };
+
+    }
+
+    var data = [{name: "Zachary", age: 28}, {name: "Nicholas", age: 10}];
+
+    /*
+     data.sort(createComparisonFunction("age"));
+     alert(data[0].name);
+
+     data.sort(createComparisonFunction("name"));
+     alert(data[0].name);
+
+     alert(data.sort().toString());*/
+
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    Person.prototype.toString = function () {
+        alert(this.name);
+        return this.name;
+    };
+
+    var persons = [new Person("Bob", 19), new Person("Mike", 10)];
+
+    //    persons.sort();
+
+    //如果传入了比较函数，那么sort就不会调用toString方法，直接调用传入的函数
+    persons.sort(createComparisonFunction("age"));
+</script>
+</body>
+</html>

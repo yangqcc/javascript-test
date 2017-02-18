@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function_test4</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    //可以把函数名想象成指针，第二个函数覆盖了第一个函数
+
+    function addSomeNumber(num1) {
+        return num1 + 10;
+    }
+
+    function addSomeNumber(num1) {
+        return num1 + 20;
+    }
+
+    alert(addSomeNumber(10));
+</script>
+</body>
+</html>

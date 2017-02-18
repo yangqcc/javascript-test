@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function_test5</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    //函数可以当做一个变量，并且作为另一个函数的参数
+
+    function callSomeFunction(someFunction, someArguments) {
+        return someFunction(someArguments);
+    }
+
+    function add10(num) {
+        return num + 10;
+    }
+
+    var result = callSomeFunction(add10, 10);
+    alert(result);
+
+    function getGreeting(name) {
+        return "Hello, " + name;
+    }
+
+    var result2 = callSomeFunction(getGreeting, "Nicholas");
+    alert(result2);
+
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    var person = new Person("Bob", 10);
+    person.myFunction = function (someFunction) {
+        return someFunction(this.name);
+    };
+
+    alert(person.myFunction(getGreeting));
+</script>
+</body>
+</html>
