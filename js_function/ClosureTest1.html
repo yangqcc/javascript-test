@@ -6,6 +6,11 @@
 </head>
 <body>
 <script>
+
+    /**
+     * 测试js函数的闭包
+     * /
+
     function f() {
         //函数内部定义变量如果前面不加var，那么就定义了一个全局变量
         n = 99;
@@ -26,32 +31,47 @@
     /*alert(n);
      alert(s);*/
 
-    var name = "Nicholas";
+    /*   var name = "Nicholas";
 
-    var object = {
+     var myObject = {
+     name: "My Object",
+     getNameFunc: function () {
+     var myFunction = function () {
+     return this;
+     }
+     return myFunction;
+     }
+     };
+
+     alert(myObject.getNameFunc()() == window);
+
+     myObject.getNameFunc()();*/
+
+    var myObject = {
         name: "My Object",
+
+
         getNameFunc: function () {
+            /*
+             * 执行getNameFunc()函数的当前执行环境是myObject，所以此时的this是myObject
+             * */
+            //    var that = this;
+            /**
+             * 此时返回当前匿名函数，再继续执行当前匿名函数，此时的匿名函数执行环境是window
+             */
             return function () {
-                alert(this);
+               // alert(that.constructor);
                 return this.name;
             }
         }
     };
 
-    object.getNameFunc()();
+    var myName = {name: "Bob"};
 
-    var object = {
-        name: "My Object",
-        getNameFunc: function () {
-            var that = this;
-            return function () {
-                alert(that.constructor);
-                return that.name;
-            }
-        }
-    };
-
-    object.getNameFunc()();
+    /**
+     * 此时的执行环境生死myName，所以此时this执行myName
+     */
+    alert(myObject.getNameFunc().call(myName));
 </script>
 </body>
 </html>
