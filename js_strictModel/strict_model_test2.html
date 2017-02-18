@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>strict_model_test2</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    /**
+     *严格模式中arguments.callee不能使用
+     */
+
+    "use strict";
+
+    function myFunction() {
+        return arguments.callee;
+    }
+
+    function innerFunction() {
+        return arguments.caller;
+    }
+
+    function outerFunction() {
+        innerFunction();
+    }
+
+    myFunction();
+
+    alert(outerFunction());
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>strict_model_test1</title>
+</head>
+<body>
+<script type="text/javascript">
+    "use strict";
+
+    function myFunction() {
+        "use strict";
+        function innerFunction() {
+            alert("this is innerFunction");
+        }
+
+        innerFunction();
+    }
+
+    myFunction();
+
+</script>
+</body>
+</html>

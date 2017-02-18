@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>strict_model_test3</title>
+</head>
+<body>
+<script type="text/javascript">
+    /**
+     * 严格模式对arguments的限制
+     * /
+
+
+
+     /**
+     * arguments不再追踪参数的变化，arguments的修改也不会反应在参数上
+     */
+
+//    "use strict";
+
+    function myFunction(num1) {
+        num1 = 2;
+        return [num1, arguments[0]];
+    }
+
+    function myFunction2(num1) {
+        arguments[0] = 2;
+        return [num1, arguments[0]]
+    }
+
+    alert(myFunction(12));
+
+    alert(myFunction2(12));
+</script>
+</body>
+</html>
