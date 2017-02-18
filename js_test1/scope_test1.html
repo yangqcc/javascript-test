@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scope_test1</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    //变量会被添加到当前的执行环境中
+
+    for (var i = 0; i < 10; i++) {
+
+    }
+
+    alert(i);
+
+    //如果前面不加var，当前变量会加到全局作用域中
+    function myFunction() {
+
+        function innerFunction() {
+            j = 0;
+        }
+
+        innerFunction();
+    }
+
+    myFunction();
+
+    alert(j);
+
+</script>
+</body>
+</html>
