@@ -41,11 +41,13 @@
     //    alert(filterArray);
 
     //返回的数组是每一项执行完函数的结果的返回值
+
+    //item是数组元素，index是当前元素在数组中的索引，array是当前数组对象
     var mapArray = numbers.map(function (item, index, array) {
         return item * 2;
     });
 
-    alert(mapArray);
+    //    alert(mapArray);
 
     //forEach方法就是遍历整个数组，并没有返回值
     numbers.forEach(function (item, index, array) {
