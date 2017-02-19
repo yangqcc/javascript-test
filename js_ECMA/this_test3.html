@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this_test3</title>
+</head>
+<body>
+<script type="text/javascript">
+    /**
+     * 构造函数的this指向当前创建的对象
+     */
+
+    var this_value = null;
+
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+        this_value = this;
+    }
+
+    Person.prototype.this_function = function () {
+        return this;
+    };
+
+    var person = new Person("Nicholas", 20);
+
+    alert(this_value == person);
+
+</script>
+</body>
+</html>
