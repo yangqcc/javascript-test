@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this_test2</title>
+</head>
+<body>
+<script type="text/javascript">
+    /**
+     * this 关键字
+     */
+
+    function first_function() {
+        return this;
+    }
+
+    function second_function() {
+        return first_function;
+    }
+
+    alert(second_function()() == window);
+
+    var my_value = {
+        basic_function: second_function()
+    };
+
+    alert(my_value.basic_function() == my_value);
+
+    my_value = {
+        basic_function: second_function
+    }
+
+    alert(my_value.basic_function()() == window);
+</script>
+</body>
+</html>
