@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Boolean_test1</title>
+</head>
+<body>
+<script type="text/javascript">
+    /**
+     * 表达式中所有的对象都被转成true，所以下面会返回true，
+     * 最好不使用Boolean包装器类型
+     * @type {Boolean}
+     */
+    var objectFalse = new Boolean(false);
+    var result = objectFalse && true;
+    alert(result);
+
+    var falseValue = false;
+    result = falseValue && true;
+    alert(result);
+</script>
+</body>
+</html>

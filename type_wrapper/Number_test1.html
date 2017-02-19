@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Number_test1</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    /**
+     * Number和Boolean类型一样，都是一个Object类型，所以也建议不要使用Number类型
+     * /
+
+
+    /**
+     * Number包装器类型构造函数
+     */
+    var numberObject = new Number(20);
+
+    /**
+     * Number的toString方法，可以自定义以几进制数值的字符串形式返回
+     */
+    var num = 10;
+
+    /*    alert(num.toString());
+     alert(num.toString(2));
+     alert(num.toString(8));*/
+
+    /**
+     * 将数值格式化字符串的方法
+     */
+
+    var num = 10;
+    //参数表示显示几位小数
+    //    alert(num.toFixed(2));
+    //这里会四舍五入，返回的是string类型
+    num = 10.005;
+    //    alert(typeof num.toFixed(2) == "string");
+
+    //返回指数表示法，这里也会四舍五入，返回的也是一个string类型
+    //    alert(typeof num.toExponential(4) == "string");
+
+    //返回指定位数的数值，这里也会四舍五入
+    num = 99;
+    /*   alert(num.toPrecision(1));
+     alert(num.toPrecision(2));
+     alert(num.toPrecision(3));*/
+
+    num = 998;
+    //    alert(num.toPrecision(1));
+
+    var numberObject = new Number(10);
+    var numberValue = 10;
+    alert(typeof numberObject);
+    alert(typeof numberValue);
+
+    alert(numberObject instanceof Number);
+    alert(numberValue instanceof Number);
+</script>
+</body>
+</html>
