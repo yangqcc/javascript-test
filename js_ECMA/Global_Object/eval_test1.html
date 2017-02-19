@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>eval_test1</title>
+</head>
+<body>
+<script type="text/javascript">
+    //    "use strict";
+
+    eval("alert(\"hi\")");
+
+    var msg = "Hello World!";
+
+    eval("alert(msg)");
+
+    eval("var eval_value='eval_value' ");
+
+    /**
+     * 严格模式中，外部不能访问eval中定义的变量
+     */
+    alert(eval_value);
+
+
+</script>
+</body>
+</html>

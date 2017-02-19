@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>uri_test1</title>
+</head>
+<body>
+<script type="text/javascript">
+    /**
+     * Global全局对象的URI编码方法
+     * 1.encodeURI() 和 encodeURIComponent()
+     *  encodeURI不会对于本身属于URI的特殊字符进行编码
+     *  encodeURIComponent会对所有的非标准字符进行编码，所以该方法基本用于对uri参数进行编码
+     */
+
+    var uri = "http://www.baidu.com/illegal value.html#start";
+
+    alert(encodeURI(uri));
+    alert(encodeURIComponent(uri));
+
+    var encode_uri = "http%3A%2F%2Fwww.baidu.com%2Fillegal%20value.html%23start";
+
+    //decodeURI只能对encodeURI替换的字符进行解码
+    alert(decodeURI(encode_uri));
+    //encodeURIComponent可以解码任何字符
+    alert(decodeURIComponent(encode_uri));
+</script>
+</body>
+</html>
