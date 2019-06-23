@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+<div id="app">{{content}}</div>
+<div>{{content}}</div>
+<script>
+    /*var dom = document.getElementById('app');
+    dom.innerHTML = 'hello world'*/
+
+    /*   setTimeout(function () {
+           var dom = document.getElementById('app');
+           dom.innerHTML = 'hello world'
+       }, 2000)*/
+
+    //创建vue的实例
+    var app = new Vue({
+        // vue接管id为app的所有内容，处理dom的范围
+        el: '#app',
+        data: {
+            content: 'hello world1'
+        }
+    });
+
+    setTimeout(function () {
+        app.$data.content = 'bye world'
+    }, 2000)
+</script>
+</body>
+</html>
