@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h3>{{msg}}</h3>
+    <!--MVVM Model View ViewModel-->
+</div>
+<script>
+    new Vue({
+        el: "#app", //目的地
+        //template: '<div>{{msg}}</div>',  //template表示模板内容 数据驱动视图
+        data: function () {
+            //声明数据
+            return {
+                msg: '大家学习Vue'
+            }
+        }
+    })
+</script>
+</body>
+</html>
